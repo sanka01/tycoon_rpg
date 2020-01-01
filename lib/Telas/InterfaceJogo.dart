@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:tycoon_rpg/Telas/TelaJogo.dart';
@@ -112,9 +111,9 @@ class _Timer2Min extends State with TickerProviderStateMixin {
 }
 
 class BotaoInterface extends StatefulWidget {
-  String tipo;
+  final String tipo;
 
-  BotaoInterface({this.tipo}) {}
+  BotaoInterface({this.tipo});
 
   @override
   State<StatefulWidget> createState() {
