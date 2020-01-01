@@ -1,6 +1,8 @@
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import 'package:flame/gestures.dart';
+import 'package:tycoon_rpg/models/Construcao.dart';
+import 'package:tycoon_rpg/models/ZonaConstrucao.dart';
 
 class TelaJogo extends BaseGame {
   double tileSize;
@@ -27,7 +29,7 @@ class TelaJogo extends BaseGame {
 }
 
 class Grid extends GestureDetector {
-  List<List> grid;
+  List<ZonaConstrucao> grid;
 
   void render(Canvas canvas, tileSize) {
     for (int y = 0; y < 8; y++)
@@ -35,9 +37,7 @@ class Grid extends GestureDetector {
         canvas.drawRect(
             Rect.fromLTWH(x * tileSize + tileSize / 2,
                 y * tileSize + tileSize / 2, tileSize, tileSize),
-            Paint()
-              ..color =
-                  this.grid[y][x] == 0 ? Color(0xFF00FF00) : Colors.yellow);
+            Paint()..color = this.grid[y].construcoes[x].cor);
         canvas.drawRect(
             Rect.fromLTWH(x * tileSize + tileSize / 2,
                 y * tileSize + tileSize / 2, tileSize, tileSize),
@@ -49,15 +49,148 @@ class Grid extends GestureDetector {
 
   Grid() {
     this.grid = [
-      [0, 0, 0, 1, 1, 0, 0, 0],
-      [0, 0, 0, 1, 1, 0, 0, 0],
-      [0, 0, 0, 1, 1, 0, 0, 0],
-      [1, 1, 1, 1, 1, 1, 1, 1],
-      [1, 1, 1, 1, 1, 1, 1, 1],
-      [0, 0, 0, 1, 1, 0, 0, 0],
-      [0, 0, 0, 1, 1, 0, 0, 0],
-      [0, 0, 0, 1, 1, 0, 0, 0]
+      ZonaConstrucao()
+        ..construcoes = [
+          Construcao.novo(Colors.brown),
+          Construcao.novo(Colors.brown),
+          Construcao.novo(Colors.brown),
+          Construcao.estrada(),
+          Construcao.estrada(),
+          Construcao.novo(Colors.brown),
+          Construcao.novo(Colors.brown),
+          Construcao.novo(Colors.brown)
+        ],
+      ZonaConstrucao()
+        ..construcoes = [
+          Construcao.novo(Colors.brown),
+          Construcao.novo(Colors.brown),
+          Construcao.novo(Colors.brown),
+          Construcao.estrada(),
+          Construcao.estrada(),
+          Construcao.novo(Colors.brown),
+          Construcao.novo(Colors.brown),
+          Construcao.novo(Colors.brown)
+        ],
+      ZonaConstrucao()
+        ..construcoes = [
+          Construcao.novo(Colors.brown),
+          Construcao.novo(Colors.brown),
+          Construcao.novo(Colors.brown),
+          Construcao.estrada(),
+          Construcao.estrada(),
+          Construcao.novo(Colors.brown),
+          Construcao.novo(Colors.brown),
+          Construcao.novo(Colors.brown)
+        ],
+      ZonaConstrucao()
+        ..construcoes = [
+          Construcao.estrada(),
+          Construcao.estrada(),
+          Construcao.estrada(),
+          Construcao.estrada()..cor = Colors.yellowAccent,
+          Construcao.estrada()..cor = Colors.yellowAccent,
+          Construcao.estrada(),
+          Construcao.estrada(),
+          Construcao.estrada()
+        ],
+      ZonaConstrucao()
+        ..construcoes = [
+          Construcao.estrada(),
+          Construcao.estrada(),
+          Construcao.estrada(),
+          Construcao.estrada()..cor = Colors.yellowAccent,
+          Construcao.estrada()..cor = Colors.yellowAccent,
+          Construcao.estrada(),
+          Construcao.estrada(),
+          Construcao.estrada()
+        ],
+
+      ZonaConstrucao()
+        ..construcoes = [
+          Construcao.novo(Colors.brown),
+          Construcao.novo(Colors.brown),
+          Construcao.novo(Colors.brown),
+          Construcao.estrada(),
+          Construcao.estrada(),
+          Construcao.novo(Colors.brown),
+          Construcao.novo(Colors.brown),
+          Construcao.novo(Colors.brown)
+        ],
+      ZonaConstrucao()
+        ..construcoes = [
+          Construcao.novo(Colors.brown),
+          Construcao.novo(Colors.brown),
+          Construcao.novo(Colors.brown),
+          Construcao.estrada(),
+          Construcao.estrada(),
+          Construcao.novo(Colors.brown),
+          Construcao.novo(Colors.brown),
+          Construcao.novo(Colors.brown)
+        ],
+      ZonaConstrucao()
+        ..construcoes = [
+          Construcao.novo(Colors.brown),
+          Construcao.novo(Colors.brown),
+          Construcao.novo(Colors.brown),
+          Construcao.estrada(),
+          Construcao.estrada(),
+          Construcao.novo(Colors.brown),
+          Construcao.novo(Colors.brown),
+          Construcao.novo(Colors.brown)
+        ],
     ];
+//    this.grid = [
+//      [
+//        Construcao.estrada(),
+//        Construcao.estrada(),
+//        Construcao.estrada(),
+//        Construcao.estrada()..cor = Colors.yellowAccent,
+//        Construcao.estrada()..cor = Colors.yellowAccent,
+//        Construcao.estrada(),
+//        Construcao.estrada(),
+//        Construcao.estrada()
+//      ],
+//      [
+//        Construcao.estrada(),
+//        Construcao.estrada(),
+//        Construcao.estrada(),
+//        Construcao.estrada()..cor = Colors.yellowAccent,
+//        Construcao.estrada()..cor = Colors.yellowAccent,
+//        Construcao.estrada(),
+//        Construcao.estrada(),
+//        Construcao.estrada()
+//      ],
+//      [
+//        Construcao.novo(Colors.brown),
+//        Construcao.novo(Colors.brown),
+//        Construcao.novo(Colors.brown),
+//        Construcao.estrada(),
+//        Construcao.estrada(),
+//        Construcao.novo(Colors.brown),
+//        Construcao.novo(Colors.brown),
+//        Construcao.novo(Colors.brown)
+//      ],
+//      [
+//        Construcao.novo(Colors.brown),
+//        Construcao.novo(Colors.brown),
+//        Construcao.novo(Colors.brown),
+//        Construcao.estrada(),
+//        Construcao.estrada(),
+//        Construcao.novo(Colors.brown),
+//        Construcao.novo(Colors.brown),
+//        Construcao.novo(Colors.brown)
+//      ],
+//      [
+//        Construcao.novo(Colors.brown),
+//        Construcao.novo(Colors.brown),
+//        Construcao.novo(Colors.brown),
+//        Construcao.estrada(),
+//        Construcao.estrada(),
+//        Construcao.novo(Colors.brown),
+//        Construcao.novo(Colors.brown),
+//        Construcao.novo(Colors.brown)
+//      ]
+//    ];
   }
 
   @override

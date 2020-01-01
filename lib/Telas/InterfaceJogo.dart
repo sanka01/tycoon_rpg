@@ -191,3 +191,11 @@ class _Mostrador extends State {
     );
   }
 }
+
+
+
+botaoNovo(BuildContext context) => Container(
+  color: Colors.brown,
+  height: 50,
+  width: MediaQuery.of(context).size.width /2.5,
+);

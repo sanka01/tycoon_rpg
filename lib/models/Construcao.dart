@@ -1,5 +1,8 @@
 import 'dart:math';
+import 'dart:ui';
 
+import 'package:flutter/material.dart';
+import 'package:tycoon_rpg/models/Local.dart';
 import 'package:tycoon_rpg/models/Tropa.dart';
 
 class Construcao {
@@ -8,6 +11,18 @@ class Construcao {
   int nivel;
   int custo;
   int vida;
+  Color cor;
+  Local local;
+  int posicao;
+
+
+  Construcao();
+
+  Construcao.estrada(){
+    this.cor = Colors.yellow;
+    this.proximoNivel = false;
+  }
+  Construcao.novo(this.cor);
 
   calculaVida() => 10 * nivel;
 
